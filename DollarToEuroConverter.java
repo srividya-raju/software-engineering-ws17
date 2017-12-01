@@ -1,6 +1,8 @@
-public class DollarToEuroConverter extends UnitConverter
+public class DollarToEuroConverter extends CurrencyConverter
 {
-  public DollarToEuroConverter() { }
+  private DollarToEuroConverter() { }
+  
+  private static final DollarToEuroConverter INSTANCE = new DollarToEuroConverter();
 
   public double convert(double inDollars) {
     return inDollars*0.85;
@@ -13,4 +15,9 @@ public class DollarToEuroConverter extends UnitConverter
   public void print(){
     System.out.println(toString());
   }
+  
+  public static UnitConverter create() {
+	  return INSTANCE;
+	  }
+  
 };
